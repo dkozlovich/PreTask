@@ -1,6 +1,5 @@
 package entity;
 
-import service.AdditionService;
 import service.CustomNumberParsingException;
 import service.ReadFromFile;
 
@@ -18,10 +17,22 @@ public class CustomNumber {
         return number;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CustomNumber that = (CustomNumber) o;
+
+        return Float.compare(that.number, number) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return (number != +0.0f ? Float.floatToIntBits(number) : 0);
+    }
+
     public static void main(String[] args) throws IOException, CustomNumberParsingException {
-        ReadFromFile readFromFile = new ReadFromFile();
-        List<CustomNumber> list;
-        list = readFromFile.read();
-        System.out.println(AdditionService.calculate(list.get(0), list.get(1)).getNumber());
+
     }
 }
