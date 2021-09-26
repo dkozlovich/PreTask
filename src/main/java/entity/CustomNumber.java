@@ -1,11 +1,5 @@
 package entity;
 
-import service.CustomNumberParsingException;
-import service.ReadFromFile;
-
-import java.io.IOException;
-import java.util.List;
-
 public class CustomNumber {
     private float number;
 
@@ -32,7 +26,7 @@ public class CustomNumber {
         return (number != +0.0f ? Float.floatToIntBits(number) : 0);
     }
 
-    public static void main(String[] args) throws IOException, CustomNumberParsingException {
+    public static void main(String[] args) {
 
     }
 }
