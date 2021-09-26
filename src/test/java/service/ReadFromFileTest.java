@@ -14,7 +14,7 @@ import java.util.List;
 public class ReadFromFileTest {
 
     @Test
-    public void testRead() throws IOException {
+    public void testRead() throws IOException, CustomNumberParsingException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("numbers.txt").getFile());
         List<CustomNumber> result = new ReadFromFile().read(file);
@@ -26,4 +26,10 @@ public class ReadFromFileTest {
         Assert.assertEquals(expected, result);
     }
 
+    @Test(expected = CustomNumberParsingException.class)
+    public void testCustomNumberParsingException() throws IOException, CustomNumberParsingException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("numbersWrong.txt").getFile());
+        new ReadFromFile().read(file);
+    }
 }

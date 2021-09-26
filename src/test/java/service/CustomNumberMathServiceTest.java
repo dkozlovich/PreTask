@@ -46,9 +46,17 @@ public class CustomNumberMathServiceTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testIllegalArgumentException() throws IllegalArgumentException {
+    public void testIllegalArgumentException1() throws IllegalArgumentException {
         CustomNumber cn1 = new CustomNumber(5);
         CustomNumber cn2 = new CustomNumber(0);
         CustomNumber f = CustomNumberMathService.divide(cn1, cn2);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalArgumentException2() throws IllegalArgumentException {
+        CustomNumber cn1 = new CustomNumber(5);
+        CustomNumber cn2 = new CustomNumber(1);
+        CustomNumber f = CustomNumberMathService.add(cn1, null, cn2);
+    }
+
 }

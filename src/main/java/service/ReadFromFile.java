@@ -16,7 +16,7 @@ public class ReadFromFile {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public List<CustomNumber> read(File file) throws IOException {
+    public List<CustomNumber> read(File file) throws IOException, CustomNumberParsingException {
         logger.info(file.getPath());
         List<CustomNumber> list = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -28,8 +28,6 @@ public class ReadFromFile {
                     list.add(customNumber);
                 }
             }
-        } catch (CustomNumberParsingException e) {
-            logger.error("An exception was thrown during parsing " + e.getMessage());
         }
         return list;
     }

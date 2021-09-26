@@ -26,7 +26,7 @@ public class CustomNumberMathService {
         validateArguments(customNumbers);
         float f = customNumbers[0].getNumber();
         for (int i = 1; i < customNumbers.length; i++) {
-            if (customNumbers[i].getNumber()==0) {
+            if (customNumbers[i].getNumber() == 0) {
                 throw new IllegalArgumentException();
             }
             f = f / customNumbers[i].getNumber();
