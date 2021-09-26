@@ -7,7 +7,7 @@ public class CustomNumberFactory {
         try {
             return new CustomNumber(Float.parseFloat(str));
         } catch (NumberFormatException e) {
-            throw new CustomNumberParsingException();
+            throw new CustomNumberParsingException(e);
         }
     }
 
