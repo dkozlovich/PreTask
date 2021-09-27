@@ -59,4 +59,10 @@ public class CustomNumberMathServiceTest {
         CustomNumber f = CustomNumberMathService.add(cn1, null, cn2);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalArgumentException3() throws IllegalArgumentException {
+        CustomNumber cn1 = new CustomNumber(5);
+        CustomNumber f = CustomNumberMathService.add(cn1);
+    }
+
 }

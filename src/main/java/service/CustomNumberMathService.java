@@ -44,6 +44,9 @@ public class CustomNumberMathService {
     }
 
     private static void validateArguments(CustomNumber ... customNumbers) throws IllegalArgumentException {
+        if (customNumbers.length < 2) {
+            throw new IllegalArgumentException();
+        }
         for (CustomNumber customNumber : customNumbers) {
             if (customNumber == null) {
                 throw new IllegalArgumentException();
